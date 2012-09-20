@@ -1299,10 +1299,10 @@ $(INTERNAL_OTA_PACKAGE_TARGET): $(BUILT_TARGET_FILES_PACKAGE) $(DISTTOOLS) $(SEL
 	   --override_device=$(override_device) \
 	   $(BUILT_TARGET_FILES_PACKAGE) $@
 
-.PHONY: otapackage aosp
+.PHONY: otapackage cerebrum
 otapackage: $(INTERNAL_OTA_PACKAGE_TARGET)
-aosp: otapackage
-	$(hide) ./vendor/common/tools/squisher
+cerebrum: otapackage
+	$(hide) ./vendor/cerebrum/tools/squisher
 # -----------------------------------------------------------------
 # The update package
 
