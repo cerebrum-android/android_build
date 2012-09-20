@@ -61,14 +61,14 @@ function check_product()
         return
     fi
 
-    if (echo -n $1 | grep -q -e "^aosp_") ; then
-       AOSP_BUILD=$(echo -n $1 | sed -e 's/^aosp_//g')
+    if (echo -n $1 | grep -q -e "^cerebrum_") ; then
+       CEREBRUM_BUILD=$(echo -n $1 | sed -e 's/^cerebrum_//g')
     elif (echo -n $1 | grep -q -e "htc_") ; then
-       AOSP_BUILD=
+       CEREBRUM_BUILD=
     else 
-       AOSP_BUILD=
+       CEREBRUM_BUILD=
     fi
-    export AOSP_BUILD
+    export CEREBRUM_BUILD
 
     CALLED_FROM_SETUP=true BUILD_SYSTEM=build/core \
         TARGET_PRODUCT=$1 \
