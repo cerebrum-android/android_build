@@ -6,6 +6,7 @@
 # The generic product target doesn't have any hardware-specific pieces.
 TARGET_NO_BOOTLOADER := true
 TARGET_NO_KERNEL := true
+TARGET_ARCH := arm
 
 # Note: we build the platform images for ARMv7-A _without_ NEON.
 #
@@ -29,13 +30,12 @@ BOARD_USES_GENERIC_AUDIO := true
 # no hardware camera
 USE_CAMERA_STUB := true
 
-# Set /system/bin/sh to ash, not mksh, to make sure we can switch back.
-TARGET_SHELL := ash
-
 # Enable dex-preoptimization to speed up the first boot sequence
 # of an SDK AVD. Note that this operation only works on Linux for now
 ifeq ($(HOST_OS),linux)
-WITH_DEXPREOPT := true
+  ifeq ($(WITH_DEXPREOPT),)
+    WITH_DEXPREOPT := true
+  endif
 endif
 
 # Build OpenGLES emulation guest and host libraries
