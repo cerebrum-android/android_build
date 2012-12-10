@@ -19,6 +19,7 @@ _vendor_owner_whitelist := \
         asus \
         audience \
         broadcom \
+        cerebrum \
         csr \
         elan \
         google \
